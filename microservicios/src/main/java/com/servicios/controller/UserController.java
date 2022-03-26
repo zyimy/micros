@@ -28,8 +28,8 @@ public class UserController {
 	
 	@GetMapping("/all")
 	public ResponseEntity<List<User>>listAll(@RequestParam(defaultValue = "0")Integer pageNo,
-			@RequestParam(defaultValue = "0")Integer pageSize,
-			@RequestParam(defaultValue = "id_user")String sorBy ){
+			@RequestParam(defaultValue = "10")Integer pageSize,
+			@RequestParam(defaultValue = "id")String sorBy ){
 		
 		List<User>lista= userService.listaUser(pageNo, pageSize, sorBy);
 		
