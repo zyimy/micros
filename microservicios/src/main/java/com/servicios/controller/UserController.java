@@ -63,5 +63,22 @@ public class UserController {
 			
 		}
 	
+	
+	@GetMapping("/allUser")
+	
+	public ResponseEntity<List<User>>listUser()
+			{
+		
+		List<User>lista= userService.lista();
+		
+		if (lista.isEmpty()) {
+			return ResponseEntity.noContent().build();
+		}else {
+			return ResponseEntity.ok(lista);
+		}
+		
+		
+	}
+	
 
 }
