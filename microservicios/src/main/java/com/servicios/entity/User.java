@@ -18,7 +18,8 @@ public class User {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long Id_user;
+	@Column(name="id")
+	private Long id;
 	
 	@Column(name = "nombre")
 	private String nombre;
@@ -43,12 +44,12 @@ public class User {
 
 
 	public Long getId_user() {
-		return Id_user;
+		return id;
 	}
 
 
 	public void setId_user(Long id_user) {
-		Id_user = id_user;
+		id_user = id_user;
 	}
 
 

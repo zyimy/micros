@@ -29,7 +29,7 @@ public class UserService {
 		
 		if (pageResult.hasContent()) {
 			return pageResult.getContent();
-		}else {
+		}else { 
 			return new ArrayList<User>();
 		}
 	}
@@ -46,15 +46,13 @@ public class UserService {
 	}
 	
 	public User saveUser(User user) {
-	 Optional<User> user2=userRepository.findById(user.getId_user());
-	 
-	 if (!user2.isPresent()) {
-		return userRepository.save(user);
-	}else {
-		return null;
+		
+     return userRepository.save(user);    
+	
 	}
 	
-	
+	public List<User>lista(){
+		return userRepository.findAll();
 	}
 
 }
