@@ -19,7 +19,7 @@ public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id")
-	private Long id;
+	private int id;
 	
 	@Column(name = "nombre")
 	private String nombre;
@@ -43,13 +43,22 @@ public class User {
 	}
 
 
-	public Long getId_user() {
+ 
+
+
+	public int getId() {
 		return id;
 	}
 
 
-	public void setId_user(Long id_user) {
-		id_user = id_user;
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", nombre=" + nombre + ", email=" + email + "]";
+	}
+
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 

@@ -40,7 +40,7 @@ public class UserServiceTest {
 		MockitoAnnotations.initMocks(this);
 		
 		 user = new User();
-		user.setId_user(1L);
+		user.setId(1);
 		user.setNombre("Yimy");
 		user.setEmail("zepedayimy46@gmail.com");
 	}
@@ -73,7 +73,7 @@ public class UserServiceTest {
 	
 	@Test
 	public void getIdTest() {
-		when(repositoryTest.findById(user.getId_user())).thenReturn(Optional.of(user));
+		when(repositoryTest.findById(user.getId())).thenReturn(Optional.of(user));
 		assertThat(user);
 	}
 
