@@ -1,6 +1,5 @@
 package com.servicios.service;
 
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -14,8 +13,6 @@ import org.springframework.stereotype.Service;
 
 import com.servicios.entity.Bike;
 import com.servicios.repository.BikeRepository;
-
-
 
 @Service
 public class BikeService {
@@ -34,7 +31,7 @@ public class BikeService {
 		}
 	}
 	
-	public Bike getById(Long id) {
+	public Bike getById(int id) {
 	Optional<Bike> user=userRepository.findById(id);	
 		if (user.isPresent()) {
 			return user.get();
@@ -53,6 +50,17 @@ public class BikeService {
 	
 	public List<Bike>lista(){
 		return userRepository.findAll();
+	}
+	
+	public List<Bike>listById(int userId){
+		Optional<Bike>user=userRepository.findById(userId);
+		
+		if (user.isPresent()) {
+			return userRepository.findByUserId(userId);
+		}else {
+			return null;
+		}
+		
 	}
 
 }

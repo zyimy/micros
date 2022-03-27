@@ -43,7 +43,7 @@ public class BikeController {
 	}
 	
 	@GetMapping("/id/{id}")
-	public ResponseEntity<Bike>getIdUser(@PathVariable("id")Long id){
+	public ResponseEntity<Bike>getIdUser(@PathVariable("id")int id){
 		Bike user = userService.getById(id);
 		
 		if (user==null) {
@@ -65,7 +65,6 @@ public class BikeController {
 	
 	
 	@GetMapping("/allBike")
-	
 	public ResponseEntity<List<Bike>>listUser()
 			{
 		
@@ -77,6 +76,20 @@ public class BikeController {
 			return ResponseEntity.ok(lista);
 		}
 		
+		
+	}
+	
+	@GetMapping("/byUser/{userId}")
+	public ResponseEntity<List<Bike>> listaUser(@PathVariable("userId")int userId) {
+		List<Bike>lista= userService.listById(userId);
+		
+		if (lista.isEmpty()) {
+		return	ResponseEntity.noContent().build();
+			
+		}else {
+		
+			return ResponseEntity.ok(lista);
+		}
 		
 	}
 	

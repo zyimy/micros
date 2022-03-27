@@ -19,7 +19,7 @@ public class Bike {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id")
-	private Long id;
+	private int id;
 	
 	@Column(name = "model")
 	private String model;
@@ -29,7 +29,7 @@ public class Bike {
 	private String brand;
 	
 	@Column(name="userId")
-	private Integer userId;
+	private int userId;
 	
 	
 
@@ -39,7 +39,7 @@ public class Bike {
 	}
 
 
-	public Bike(String model, String brand,Integer userId) {
+	public Bike(String model, String brand,int userId) {
 		
 		this.model = model;
 		this.brand = brand;
@@ -67,14 +67,35 @@ public class Bike {
 	}
 
 
-	public Integer getUserId() {
+
+
+	public int getId() {
+		return id;
+	}
+
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+
+	public int getUserId() {
 		return userId;
 	}
 
 
-	public void setUserId(Integer userId) {
+	public void setUserId(int userId) {
 		this.userId = userId;
 	}
+
+
+	@Override
+	public String toString() {
+		return "Bike [id=" + id + ", model=" + model + ", brand=" + brand + ", userId=" + userId + "]";
+	}
+
+
+  
 	
 	
 
