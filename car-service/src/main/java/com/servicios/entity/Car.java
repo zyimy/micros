@@ -19,7 +19,7 @@ public class Car {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id")
-	private Long id;
+	private int id;
 	
 	@Column(name = "nombre")
 	private String model;
@@ -29,7 +29,7 @@ public class Car {
 	private String brand;
 	
 	@Column(name="userId")
-	private Integer userId;
+	private int userId;
 	
 	
 
@@ -39,7 +39,7 @@ public class Car {
 	}
 
 
-	public Car(String model, String brand,Integer userId) {
+	public Car(String model, String brand,int userId) {
 		
 		this.model = model;
 		this.brand = brand;
@@ -67,14 +67,26 @@ public class Car {
 	}
 
 
-	public Integer getUserId() {
+	public int getUserId() {
 		return userId;
 	}
 
 
-	public void setUserId(Integer userId) {
+	public void setUserId(int userId) {
 		this.userId = userId;
 	}
+
+
+	public int getId() {
+		return id;
+	}
+
+
+	public void setId(int id) {
+		this.id = id;
+	}
+	
+	
 	
 	
 

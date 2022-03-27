@@ -14,16 +14,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+
 import com.servicios.entity.Car;
-import com.servicios.service.UserService;
+import com.servicios.service.CarService;
 
 @RestController
 @CrossOrigin(origins = "*")
 @RequestMapping("/car")
-public class UserController {
+public class CarController {
 	
 	@Autowired
-	private UserService userService;
+	private CarService userService;
 	
 	
 	@GetMapping("/all")
@@ -43,7 +44,7 @@ public class UserController {
 	}
 	
 	@GetMapping("/id/{id}")
-	public ResponseEntity<Car>getIdUser(@PathVariable("id")Long id){
+	public ResponseEntity<Car>getIdUser(@PathVariable("id")int id){
 		Car user = userService.getById(id);
 		
 		if (user==null) {
@@ -77,6 +78,20 @@ public class UserController {
 			return ResponseEntity.ok(lista);
 		}
 		
+		
+	}
+	
+	@GetMapping("/byUser/{userId}")
+	public ResponseEntity<List<Car>> listaUser(@PathVariable("userId")int userId) {
+		List<Car>lista= userService.listById(userId);
+		
+		if (lista.isEmpty()) {
+		return	ResponseEntity.noContent().build();
+			
+		}else {
+		
+			return ResponseEntity.ok(lista);
+		}
 		
 	}
 	

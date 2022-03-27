@@ -12,16 +12,17 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+
 import com.servicios.entity.Car;
-import com.servicios.repository.UserRepository;
+import com.servicios.repository.CarRepository;
 
 
 
 @Service
-public class UserService {
+public class CarService {
 	
 	@Autowired
-	private UserRepository userRepository;
+	private CarRepository userRepository;
 	
 	public List<Car>listaUser(Integer pageNo,Integer pageSize,String sorBy){
 	Pageable paging = PageRequest.of(pageNo, pageSize,Sort.by(sorBy));
@@ -34,7 +35,7 @@ public class UserService {
 		}
 	}
 	
-	public Car getById(Long id) {
+	public Car getById(int id) {
 	Optional<Car> user=userRepository.findById(id);	
 		if (user.isPresent()) {
 			return user.get();
@@ -53,6 +54,17 @@ public class UserService {
 	
 	public List<Car>lista(){
 		return userRepository.findAll();
+	}
+	
+	public List<Car>listById(int userId){
+		Optional<Car>user=userRepository.findById(userId);
+		
+		if (user.isPresent()) {
+			return userRepository.findByUserId(userId);
+		}else {
+			return null;
+		}
+		
 	}
 
 }
